@@ -1,0 +1,8 @@
+.catContainer {
+    display: flex;
+
+}
+
+.catBox {
+    margin: 0 30px;
+}
