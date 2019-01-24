@@ -31,45 +31,58 @@ Router.get('/categories', (req, res, next) => {
 })
 
 //grabs subcategory listing data
-Router.get('/listings', (req,res, next) => {
-  const sql = `SELECT * FROM listings WHERE category_id=?`
+Router.get('/listings/:id', (req,res, next) => {
+  const sql = `SELECT listings.id, listings.listing_name, listings.cover_photo, listings.category_id, categories.name, categories.slug
+  FROM listings 
+  LEFT JOIN categories 
+  ON listings.category_id = categories.id  WHERE listings.id=?OR categories.id = ?`
 
-  conn.query(sql, [req.query.catId], (error, results, fields) => {
+  conn.query(sql, [req.params.id, req.params.id], (error, results, fields) => {
     res.json(results)
   })
 })
 
 
 //grabs all category listing data
-Router.get('/listings/results', (req, res, next) => {
-  const sql = `SELECT listings.id, listings.listing_name 
-  FROM categories
-  LEFT JOIN listings ON listings.category_id = categories.id AND categories.parent_id = ?
-  WHERE listing_name IS NOT NULL;  `
+Router.get('/all/results/:id', (req, res, next) => {
+  const sql = `SELECT categories.parent_id, listings.listing_name,listings.cover_photo,listings.id
+  FROM listings
+  LEFT JOIN categories ON listings.category_id = categories.id
+  WHERE parent_id = ?
+`
 
 
 
-  conn.query(sql, [req.query.catId], (error, results, fields) => {
-    
+  conn.query(sql, [req.params.id], (err, results, fields) => {
     res.json(results)
   })
+})
 
-  console.log(results)
+//grabs single category
+
+Router.get('/listing/:id', (req, res, next) => {
+  const sql = `SELECT listings.listing_name,listings.cover_photo, listings.id
+  FROM listings
+ WHERE listings.id= ?`
+
+ conn.query(sql, [req.params.id], (error, results, fields) => {
+  res.json(results)
+ })
 })
 
 
 
 Router.post('/listings', (req, res, next) => {
-  const sql = `
-  INSERT INTO listings (listing_name, category_id, cover_photo) 
-  VALUES (?, ?, ?)`
+    const sql = `
+    INSERT INTO listings (listing_name, category_id, cover_photo) 
+    VALUES (?, ?, ?)`
 
-  const values = [req.body.listingName, req.body.catId, req.body.coverPhoto]
+    const values = [req.body.name, req.body.id, req.body.cover_photo]
 
-  conn.query(sql, values, (err, results, fields) => {
-    console.log(results)
-    res.json({message: 'listing added'})
-  })
+    conn.query(sql, values, (error, results, fields) => {
+      console.log(results)
+      res.json({message: 'listing added'})
+    })
 })
 
  

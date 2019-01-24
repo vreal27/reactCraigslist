@@ -1,0 +1,47 @@
+.listingContainer {
+    font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.listings {
+    list-style: none;
+}
+
+.listings a {
+    margin-left: 10px;
+}
+
+.listings li {
+    margin-top: 15px;
+
+}
+
+.listbox h1 {
+    text-align: center;
+    font-weight: lighter;
+    padding-top: 5px;
+    border-bottom: solid 1px gray;
+    border-top: solid 1px gray;
+    background-color: rgb(234,234,234);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+img {
+    margin-bottom: 5px;
+}
+
+.listbox {
+    padding-top: 0;
+    border: solid 1px black;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#create {
+    display: inline-block; 
+    margin-top: 20px;
+    font-size: 20px;
+}

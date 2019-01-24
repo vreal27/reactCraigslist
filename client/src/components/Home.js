@@ -13,17 +13,20 @@ class Home extends Component {
 
 
     return (
-      <div>
-        <h1>Home</h1>
+      <div className="main">
+        <div id="leftbar">TEST</div>
         <div className ="catContainer">
-            {this.props.categories.map(c => (
-              <div key={c.id} className="catBox">
-                <h2><Link to={`/listings/results/${c.id}`}>{c.name}</Link></h2>
-                {c.subcat.map(r => (<div key= {r.id}><Link to={`/listings/${r.id}`}>{r.name}</Link></div>))}
-             </div>
-        
-            ))}
-        </div>
+            <h1>Home</h1>
+            <div className="info">
+              {this.props.categories.map(c => (
+                <div key={c.id} className="catBox">
+                  <h2><Link to={`/all/results/${c.id}`}>{c.name}</Link></h2>
+                  {c.subcat.map(r => (<div key= {r.id} className="subcats"><Link to={`/listings/${r.id}`}>{r.name}</Link></div>))}
+              </div>
+              ))}
+              </div>
+         </div>
+         <div id="rightbar">TEST</div>
         
       </div>
     )

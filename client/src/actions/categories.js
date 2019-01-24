@@ -13,8 +13,9 @@ export function headCategories() {
 }
 
 
+
 export function listings(catId) {
-  axios.get(`/listings/?catId=${catId}`).then(resp => {
+  axios.get(`/listings/${catId}`).then(resp => {
     console.log("action", resp)
     store.dispatch({
       type:'CAT_LISTINGS',
@@ -23,8 +24,22 @@ export function listings(catId) {
   })
 }
 
-export function allListings(catId){
-  axios.get(`/listings/results/?catId=${catId}`).then(resp => {
+export function createPost(post) {
+ return  axios.post('/listings', post)
+}
+
+export function singlePost(catId){
+  axios.get(`/listing/${catId}`).then(resp => {
+    store.dispatch({
+      type:'SINGLE_POST',
+      post: resp.data
+    })
+  })
+}
+
+
+export function allListings(id){
+  axios.get(`/all/results/${id}`).then(resp => {
     console.log("results", resp)
     store.dispatch({
       type: 'ALL_LISTINGS',
@@ -32,3 +47,4 @@ export function allListings(catId){
     })
   })
 }
+

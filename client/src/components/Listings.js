@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { listings } from '../actions/categories' 
+import '../styles/Listings.css'
 
 
 class Listings extends Component {
 
     componentDidMount(){
-        listings(this.props.match.params.catId)
+        listings(this.props.match.params.id)
     }
 
     render() {
         console.log('labelonthis', this.props)
         return (
-            <div>
-                <h1>Results</h1>
-                <ul>
-                    {this.props.listings.map(a => {
-                        return ( 
-                        <li key={a.id}><img src={a.cover_photo}/>{a.listing_name}</li>
+            <div className= "listingsContainer">
+                <div className="listbox">
+                    <h1>Listings</h1>
+                    <ul className= "listings">
+                        {this.props.listings.map((a,i) => {
+                            return ( 
+                            <li key={'id' + i}><img src={a.cover_photo}/><br/><Link to={`/listing/${a.id}`}>{a.listing_name}</Link></li>
+                            
+                            )
                         
-                        )
-                       
-                    })}
-                </ul>
+                        })}
+                    </ul>
+                    <Link id="create" to={"/create/" + this.props.match.params.id}>Create a Post</Link> 
+                </div>
             </div>
         )
     }
@@ -33,6 +38,7 @@ function MapStateToProps(appstate){
    
     return {
         listings: appstate.rlReducer.listings
+
     }
 
 }

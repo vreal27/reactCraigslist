@@ -1,8 +1,72 @@
-.catContainer {
-    display: flex;
+html{box-sizing: border-box}
+*, *::before, *::after {box-sizing: inherit}
 
+.main {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: lighter;
+    display:flex;
+    width: 1200px;
+    margin: 0;
+
+}
+
+.info {
+ display: flex;
+ flex-wrap: wrap;
+ width: 900px;
+}
+
+.catContainer h1 {
+    font-family: 'Times New Roman';
+    font-weight: lighter;
+    height: 40px; 
+    margin: 20px 10px;
+    text-align: center;
+    padding-top: 5px;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    background-color: rgb(234,234,234);
+}
+
+h2 {
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    padding-top: 5px;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    background-color: rgb(234,234,234);
+    font-size: 18px;
+}
+
+h2:hover {
+    background-color: white;
+}
+
+a {
+    text-decoration: none; 
+}
+
+#leftbar  {
+    margin-top: 20px;
+    height: 500px;
+    width: 300px;
+    border: solid 1px black;
+}
+
+#rightbar {
+    margin-top: 20px;
+    height: 500px;
+    width: 200px;
+    border: solid 1px black;
 }
 
 .catBox {
     margin: 0 30px;
+}
+
+.subcats {
+    padding-top: 5px;
+    border-bottom: solid 1px lightgray; 
 }

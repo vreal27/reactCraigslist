@@ -1,0 +1,7 @@
+.AllListings {
+    list-style: none;
+}
+
+.AllListings li {
+    margin-top: 15px;
+}

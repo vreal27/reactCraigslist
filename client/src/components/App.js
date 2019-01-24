@@ -6,6 +6,8 @@ import store from '../store'
 import Home from './Home'
 import Listings from './Listings'
 import AllListings from './AllListings'
+import Listing from './Listing'
+import Create from './Create'
 
 class App extends Component {
   render() {
@@ -14,8 +16,10 @@ class App extends Component {
         <Router>
           <div>
             <Route path="/" exact component={Home} />
-            <Route path="/listings/:catId" component={Listings}/>
-            <Route path="/listings/results/:catId" component={AllListings}/>
+            <Route path="/listing/:id" component={Listing}/>
+            <Route path="/listings/:id" component={Listings}/>
+            <Route path="/create/:id" component={Create}/>
+            <Route path="/all/results/:id" component={AllListings}/>
           </div>
         </Router>
       </Provider>

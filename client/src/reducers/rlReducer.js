@@ -1,7 +1,9 @@
 const initialState = {
   categories:[],
   listings: [],
-  allListings: []
+  allListings: [],
+  post: []
+
 }
 
 export default function (state = initialState, action) {
@@ -13,6 +15,8 @@ export default function (state = initialState, action) {
       return {...state, listings: action.listings}
     case 'ALL_LISTINGS':
       return {...state, allListings: action.allListings}
+    case 'SINGLE_POST':
+      return {...state, post: action.post}
     default:
       return state
   }
