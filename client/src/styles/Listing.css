@@ -1,0 +1,23 @@
+.postBox {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    padding-top: 0;
+    border: solid 1px black;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 30px;
+}
+
+#single {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#single img {
+    height: 300px;
+    width: 300px;
+}

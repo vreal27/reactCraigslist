@@ -1,7 +1,21 @@
+.AllListingContainer {
+    font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
 .AllListings {
     list-style: none;
 }
 
 .AllListings li {
     margin-top: 15px;
+}
+
+.listbox {
+    padding-top: 0;
+    border: solid 1px black;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }

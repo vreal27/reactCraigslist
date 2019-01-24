@@ -12,12 +12,16 @@ class Listings extends Component {
     render() {
         return (
             <div className="AllListingsContainer">
-            `   <h1>All </h1>
-                <ul className="AllListings">
-                    {this.props.allListings.map(r => {
-                        return(<li key={r.id}><Link to={`/listing/${r.id}`}><img src={r.cover_photo}/><br/>{r.listing_name}</Link></li>
-                    )})}
-                </ul>
+                <div className="listbox">
+                <Link to='/'>Back to home</Link>
+                    <h1>All listings</h1>
+                    <ul className="AllListings">
+                        {this.props.allListings.map(r => {
+                            return(<li key={r.id}><Link to={`/listing/${r.id}`}><img src={r.cover_photo}/><br/>{r.listing_name}</Link></li>
+                        )})}
+                    </ul>
+                </div>
+            `   
             </div>
         )
     }

@@ -16,6 +16,7 @@ class Listings extends Component {
         return (
             <div className= "listingsContainer">
                 <div className="listbox">
+                    <Link to='/'>Back to home</Link>
                     <h1>Listings</h1>
                     <ul className= "listings">
                         {this.props.listings.map((a,i) => {

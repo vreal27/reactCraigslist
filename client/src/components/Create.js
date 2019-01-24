@@ -31,6 +31,7 @@ class Create extends Component {
     render() {
         return (
             <div>
+                <h1>Create a Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <p>
                         <input type="text" name="name" onChange={this.handleChange} placeholder="Name of Post" value={this.state.name}/>

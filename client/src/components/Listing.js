@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { singlePost } from '../actions/categories';
+import '../styles/Listing.css'
 
 class Listing extends Component {
     componentDidMount(){
@@ -10,13 +12,16 @@ class Listing extends Component {
     render() {
         return (
             <div>
-                <ul>
-                    {this.props.post.map(s => {
-                        return(
-                            <li key={s.id}><img src={s.cover_photo}/>{s.listing_name}</li>
-                        )
-                    })}
-                </ul>
+                <Link to='/'>Back to home</Link>
+                <div className="postBox">
+                    <ul id="single">
+                        {this.props.post.map(s => {
+                            return(
+                                <li key={s.id}><img src={s.cover_photo}/><br/>{s.listing_name}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }
